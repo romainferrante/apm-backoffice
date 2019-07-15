@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="apmBackOfficeApp.labelValue.home.title">Label Values</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-label-value" [routerLink]="['/label-value/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="apmBackOfficeApp.labelValue.home.createLabel">
+            Create new Label Value
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="labelValues?.length === 0">
+        <span jhiTranslate="apmBackOfficeApp.labelValue.home.notFound">No labelValues found</span>
+    </div>
+    <div class="table-responsive" *ngIf="labelValues?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="apmBackOfficeApp.labelValue.value">Value</span></th>
+            <th><span jhiTranslate="apmBackOfficeApp.labelValue.lang">Lang</span></th>
+            <th><span jhiTranslate="apmBackOfficeApp.labelValue.country">Country</span></th>
+            <th><span jhiTranslate="apmBackOfficeApp.labelValue.creationDate">Creation Date</span></th>
+            <th><span jhiTranslate="apmBackOfficeApp.labelValue.updateDate">Update Date</span></th>
+            <th><span jhiTranslate="apmBackOfficeApp.labelValue.label">Label</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let labelValue of labelValues ;trackBy: trackId">
+                <td><a [routerLink]="['/label-value', labelValue.id, 'view' ]">{{labelValue.id}}</a></td>
+                <td>{{labelValue.value}}</td>
+                <td>{{labelValue.lang}}</td>
+                <td>{{labelValue.country}}</td>
+                <td>{{labelValue.creationDate | date:'mediumDate'}}</td>
+                <td>{{labelValue.updateDate | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="labelValue.label">
+                        <a [routerLink]="['../label', labelValue.label?.id, 'view' ]" >{{labelValue.label?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/label-value', labelValue.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/label-value', labelValue.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'label-value', { outlets: { popup: labelValue.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="label">
+            <h2><span jhiTranslate="apmBackOfficeApp.label.detail.title">Label</span> {{label.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="apmBackOfficeApp.label.code">Code</span></dt>
+                <dd>
+                    <span>{{label.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="apmBackOfficeApp.label.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{label.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="apmBackOfficeApp.label.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{label.updateDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="apmBackOfficeApp.label.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="label.category">
+                        <a [routerLink]="['/category', label.category?.id, 'view']">{{label.category?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/label', label.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

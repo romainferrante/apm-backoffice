@@ -194,6 +194,21 @@ public class CacheConfiguration {
             registerPredefinedCache(fr.cnp.apm.bo.domain.User.class.getName() + ".authorities", new JCache<Object, Object>(
                 cacheManager.getCache(fr.cnp.apm.bo.domain.User.class.getName() + ".authorities").getAdvancedCache(), this,
                 ConfigurationAdapter.create()));
+            registerPredefinedCache(fr.cnp.apm.bo.domain.Label.class.getName(), new JCache<Object, Object>(
+                cacheManager.getCache(fr.cnp.apm.bo.domain.Label.class.getName()).getAdvancedCache(), this,
+                ConfigurationAdapter.create()));
+            registerPredefinedCache(fr.cnp.apm.bo.domain.Label.class.getName() + ".labelValues", new JCache<Object, Object>(
+                cacheManager.getCache(fr.cnp.apm.bo.domain.Label.class.getName() + ".labelValues").getAdvancedCache(), this,
+                ConfigurationAdapter.create()));
+            registerPredefinedCache(fr.cnp.apm.bo.domain.LabelValue.class.getName(), new JCache<Object, Object>(
+                cacheManager.getCache(fr.cnp.apm.bo.domain.LabelValue.class.getName()).getAdvancedCache(), this,
+                ConfigurationAdapter.create()));
+            registerPredefinedCache(fr.cnp.apm.bo.domain.Category.class.getName(), new JCache<Object, Object>(
+                cacheManager.getCache(fr.cnp.apm.bo.domain.Category.class.getName()).getAdvancedCache(), this,
+                ConfigurationAdapter.create()));
+            registerPredefinedCache(fr.cnp.apm.bo.domain.Category.class.getName() + ".labels", new JCache<Object, Object>(
+                cacheManager.getCache(fr.cnp.apm.bo.domain.Category.class.getName() + ".labels").getAdvancedCache(), this,
+                ConfigurationAdapter.create()));
             // jhipster-needle-infinispan-add-entry
             if (jHipsterProperties.getCache().getInfinispan().isStatsEnabled()) {
                 for (String cacheName : cacheManager.getCacheNames()) {

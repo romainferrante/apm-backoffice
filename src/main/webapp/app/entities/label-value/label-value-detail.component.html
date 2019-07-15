@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="labelValue">
+            <h2><span jhiTranslate="apmBackOfficeApp.labelValue.detail.title">Label Value</span> {{labelValue.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="apmBackOfficeApp.labelValue.value">Value</span></dt>
+                <dd>
+                    <span>{{labelValue.value}}</span>
+                </dd>
+                <dt><span jhiTranslate="apmBackOfficeApp.labelValue.lang">Lang</span></dt>
+                <dd>
+                    <span>{{labelValue.lang}}</span>
+                </dd>
+                <dt><span jhiTranslate="apmBackOfficeApp.labelValue.country">Country</span></dt>
+                <dd>
+                    <span>{{labelValue.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="apmBackOfficeApp.labelValue.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{labelValue.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="apmBackOfficeApp.labelValue.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{labelValue.updateDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="apmBackOfficeApp.labelValue.label">Label</span></dt>
+                <dd>
+                    <div *ngIf="labelValue.label">
+                        <a [routerLink]="['/label', labelValue.label?.id, 'view']">{{labelValue.label?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/label-value', labelValue.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
