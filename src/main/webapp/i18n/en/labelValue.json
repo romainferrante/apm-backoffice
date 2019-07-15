@@ -1,0 +1,27 @@
+{
+  "apmBackOfficeApp": {
+    "labelValue": {
+      "home": {
+        "title": "Label Values",
+        "createLabel": "Create a new Label Value",
+        "createOrEditLabel": "Create or edit a Label Value",
+        "notFound": "No Label Value found"
+      },
+      "created": "A new Label Value is created with identifier {{ param }}",
+      "updated": "A Label Value is updated with identifier {{ param }}",
+      "deleted": "A Label Value is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Label Value {{ id }}?"
+      },
+      "detail": {
+        "title": "Label Value"
+      },
+      "value": "Value",
+      "lang": "Lang",
+      "country": "Country",
+      "creationDate": "Creation Date",
+      "updateDate": "Update Date",
+      "label": "Label"
+    }
+  }
+}
