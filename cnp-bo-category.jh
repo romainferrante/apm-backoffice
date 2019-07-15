@@ -1,0 +1,29 @@
+entity Label {
+	code String
+    creationDate LocalDate
+    updateDate LocalDate
+}
+
+entity LabelValue {
+	value String
+    lang String
+    country String
+    creationDate LocalDate
+    updateDate LocalDate
+}
+
+entity Category {
+	name String
+    creationDate LocalDate
+    updateDate LocalDate
+}
+
+relationship ManyToOne {
+	LabelValue to Label
+}
+
+relationship OneToMany {
+	Category to Label
+}
+
+service all with serviceImpl
